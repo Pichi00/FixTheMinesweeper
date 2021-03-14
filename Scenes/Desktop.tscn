@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Graphics/SaperWindow.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/SaperWindow.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Saper.gd" type="Script" id=3]
-[ext_resource path="res://Graphics/Smile.png" type="Texture" id=4]
-[ext_resource path="res://Graphics/Bin.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/Bin.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/Smile.png" type="Texture" id=5]
 [ext_resource path="res://Graphics/MyComp.png" type="Texture" id=6]
 [ext_resource path="res://Graphics/Credits.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/Minesweeper.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/Xbutton.png" type="Texture" id=9]
 
 [node name="Desktop" type="Node2D"]
 script = ExtResource( 3 )
@@ -21,33 +23,97 @@ __meta__ = {
 }
 
 [node name="DesktopIcons" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 404.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Bin" type="Sprite" parent="DesktopIcons"]
+position = Vector2( 318, 461 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="BinLabel" type="Label" parent="DesktopIcons/Bin"]
+margin_left = -20.0
+margin_top = 18.0
+margin_right = 66.0
+margin_bottom = 32.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Recycle Bin"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bin" type="Sprite" parent="."]
-position = Vector2( 68, 180 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 5 )
-
-[node name="Credits" type="Sprite" parent="."]
-position = Vector2( 64, 272 )
+[node name="Credits" type="Sprite" parent="DesktopIcons"]
+position = Vector2( 92, 212 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 
-[node name="MyComp" type="Sprite" parent="."]
-position = Vector2( 60, 88 )
+[node name="CreditsLabel" type="Label" parent="DesktopIcons/Credits"]
+margin_left = -22.0
+margin_top = 12.0
+margin_right = 64.0
+margin_bottom = 26.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Credits"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MyComp" type="Sprite" parent="DesktopIcons"]
+position = Vector2( 92, 88 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
+
+[node name="MyCompLabel" type="Label" parent="DesktopIcons/MyComp"]
+margin_left = -20.0
+margin_top = 16.5
+margin_right = 66.0
+margin_bottom = 30.5
+rect_scale = Vector2( 0.5, 0.5 )
+text = "My Computer"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Minesweeper" type="TextureButton" parent="."]
+margin_left = 276.0
+margin_top = 49.0
+margin_right = 308.0
+margin_bottom = 82.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MyCompLabel2" type="Label" parent="Minesweeper"]
+margin_left = -6.0
+margin_top = 32.0
+margin_right = 80.0
+margin_bottom = 46.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Minesweeper"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MineSweeperWindow" type="Node2D" parent="."]
 visible = false
 
 [node name="Window" type="Sprite" parent="MineSweeperWindow"]
 position = Vector2( 200, 284 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -61,377 +127,377 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_top = 1.0
 margin_right = 32.0
 margin_bottom = 33.0
 
-[node name="Button2" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button2" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 33.0
 margin_top = 1.0
 margin_right = 65.0
 margin_bottom = 33.0
 
-[node name="Button4" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button4" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 66.0
 margin_top = 1.0
 margin_right = 98.0
 margin_bottom = 33.0
 
-[node name="Button3" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button3" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 99.0
 margin_top = 1.0
 margin_right = 131.0
 margin_bottom = 33.0
 
-[node name="Button8" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button8" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 132.0
 margin_top = 1.0
 margin_right = 164.0
 margin_bottom = 33.0
 
-[node name="Button7" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button7" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 1.0
 margin_right = 197.0
 margin_bottom = 33.0
 
-[node name="Button6" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button6" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 198.0
 margin_top = 1.0
 margin_right = 230.0
 margin_bottom = 33.0
 
-[node name="Button5" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button5" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 231.0
 margin_top = 1.0
 margin_right = 263.0
 margin_bottom = 33.0
 
-[node name="Button16" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button16" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_top = 34.0
 margin_right = 32.0
 margin_bottom = 66.0
 
-[node name="Button15" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button15" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 33.0
 margin_top = 34.0
 margin_right = 65.0
 margin_bottom = 66.0
 
-[node name="Button14" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button14" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 66.0
 margin_top = 34.0
 margin_right = 98.0
 margin_bottom = 66.0
 
-[node name="Button13" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button13" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 99.0
 margin_top = 34.0
 margin_right = 131.0
 margin_bottom = 66.0
 
-[node name="Button12" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button12" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 132.0
 margin_top = 34.0
 margin_right = 164.0
 margin_bottom = 66.0
 
-[node name="Button11" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button11" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 34.0
 margin_right = 197.0
 margin_bottom = 66.0
 
-[node name="Button10" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button10" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 198.0
 margin_top = 34.0
 margin_right = 230.0
 margin_bottom = 66.0
 
-[node name="Button9" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button9" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 231.0
 margin_top = 34.0
 margin_right = 263.0
 margin_bottom = 66.0
 
-[node name="Button32" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button32" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_top = 67.0
 margin_right = 32.0
 margin_bottom = 99.0
 
-[node name="Button31" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button31" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 33.0
 margin_top = 67.0
 margin_right = 65.0
 margin_bottom = 99.0
 
-[node name="Button30" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button30" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 66.0
 margin_top = 67.0
 margin_right = 98.0
 margin_bottom = 99.0
 
-[node name="Button29" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button29" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 99.0
 margin_top = 67.0
 margin_right = 131.0
 margin_bottom = 99.0
 
-[node name="Button28" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button28" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 132.0
 margin_top = 67.0
 margin_right = 164.0
 margin_bottom = 99.0
 
-[node name="Button27" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button27" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 67.0
 margin_right = 197.0
 margin_bottom = 99.0
 
-[node name="Button26" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button26" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 198.0
 margin_top = 67.0
 margin_right = 230.0
 margin_bottom = 99.0
 
-[node name="Button25" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button25" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 231.0
 margin_top = 67.0
 margin_right = 263.0
 margin_bottom = 99.0
 
-[node name="Button24" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button24" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_top = 100.0
 margin_right = 32.0
 margin_bottom = 132.0
 
-[node name="Button23" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button23" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 33.0
 margin_top = 100.0
 margin_right = 65.0
 margin_bottom = 132.0
 
-[node name="Button22" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button22" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 66.0
 margin_top = 100.0
 margin_right = 98.0
 margin_bottom = 132.0
 
-[node name="Button21" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button21" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 99.0
 margin_top = 100.0
 margin_right = 131.0
 margin_bottom = 132.0
 
-[node name="Button20" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button20" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 132.0
 margin_top = 100.0
 margin_right = 164.0
 margin_bottom = 132.0
 
-[node name="Button19" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button19" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 100.0
 margin_right = 197.0
 margin_bottom = 132.0
 
-[node name="Button18" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button18" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 198.0
 margin_top = 100.0
 margin_right = 230.0
 margin_bottom = 132.0
 
-[node name="Button17" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button17" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 231.0
 margin_top = 100.0
 margin_right = 263.0
 margin_bottom = 132.0
 
-[node name="Button64" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button64" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_top = 133.0
 margin_right = 32.0
 margin_bottom = 165.0
 
-[node name="Button63" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button63" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 33.0
 margin_top = 133.0
 margin_right = 65.0
 margin_bottom = 165.0
 
-[node name="Button62" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button62" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 66.0
 margin_top = 133.0
 margin_right = 98.0
 margin_bottom = 165.0
 
-[node name="Button61" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button61" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 99.0
 margin_top = 133.0
 margin_right = 131.0
 margin_bottom = 165.0
 
-[node name="Button60" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button60" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 132.0
 margin_top = 133.0
 margin_right = 164.0
 margin_bottom = 165.0
 
-[node name="Button59" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button59" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 133.0
 margin_right = 197.0
 margin_bottom = 165.0
 
-[node name="Button58" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button58" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 198.0
 margin_top = 133.0
 margin_right = 230.0
 margin_bottom = 165.0
 
-[node name="Button57" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button57" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 231.0
 margin_top = 133.0
 margin_right = 263.0
 margin_bottom = 165.0
 
-[node name="Button56" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button56" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_top = 166.0
 margin_right = 32.0
 margin_bottom = 198.0
 
-[node name="Button55" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button55" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 33.0
 margin_top = 166.0
 margin_right = 65.0
 margin_bottom = 198.0
 
-[node name="Button54" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button54" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 66.0
 margin_top = 166.0
 margin_right = 98.0
 margin_bottom = 198.0
 
-[node name="Button53" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button53" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 99.0
 margin_top = 166.0
 margin_right = 131.0
 margin_bottom = 198.0
 
-[node name="Button52" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button52" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 132.0
 margin_top = 166.0
 margin_right = 164.0
 margin_bottom = 198.0
 
-[node name="Button51" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button51" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 166.0
 margin_right = 197.0
 margin_bottom = 198.0
 
-[node name="Button50" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button50" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 198.0
 margin_top = 166.0
 margin_right = 230.0
 margin_bottom = 198.0
 
-[node name="Button49" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button49" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 231.0
 margin_top = 166.0
 margin_right = 263.0
 margin_bottom = 198.0
 
-[node name="Button48" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button48" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_top = 199.0
 margin_right = 32.0
 margin_bottom = 231.0
 
-[node name="Button47" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button47" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 33.0
 margin_top = 199.0
 margin_right = 65.0
 margin_bottom = 231.0
 
-[node name="Button46" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button46" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 66.0
 margin_top = 199.0
 margin_right = 98.0
 margin_bottom = 231.0
 
-[node name="Button45" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button45" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 99.0
 margin_top = 199.0
 margin_right = 131.0
 margin_bottom = 231.0
 
-[node name="Button44" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button44" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 132.0
 margin_top = 199.0
 margin_right = 164.0
 margin_bottom = 231.0
 
-[node name="Button43" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button43" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 199.0
 margin_right = 197.0
 margin_bottom = 231.0
 
-[node name="Button42" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button42" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 198.0
 margin_top = 199.0
 margin_right = 230.0
 margin_bottom = 231.0
 
-[node name="Button41" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button41" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 231.0
 margin_top = 199.0
 margin_right = 263.0
 margin_bottom = 231.0
 
-[node name="Button40" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button40" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_top = 232.0
 margin_right = 32.0
 margin_bottom = 264.0
 
-[node name="Button39" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button39" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 33.0
 margin_top = 232.0
 margin_right = 65.0
 margin_bottom = 264.0
 
-[node name="Button38" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button38" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 66.0
 margin_top = 232.0
 margin_right = 98.0
 margin_bottom = 264.0
 
-[node name="Button37" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button37" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 99.0
 margin_top = 232.0
 margin_right = 131.0
 margin_bottom = 264.0
 
-[node name="Button36" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button36" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 132.0
 margin_top = 232.0
 margin_right = 164.0
 margin_bottom = 264.0
 
-[node name="Button35" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button35" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 232.0
 margin_right = 197.0
 margin_bottom = 264.0
 
-[node name="Button34" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button34" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 198.0
 margin_top = 232.0
 margin_right = 230.0
 margin_bottom = 264.0
 
-[node name="Button33" parent="MineSweeperWindow/Buttons" instance=ExtResource( 1 )]
+[node name="Button33" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 231.0
 margin_top = 232.0
 margin_right = 263.0
@@ -439,9 +505,9 @@ margin_bottom = 264.0
 
 [node name="Smile" type="Sprite" parent="MineSweeperWindow"]
 position = Vector2( 288, 128 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
-[node name="ColorRect" type="ColorRect" parent="MineSweeperWindow"]
+[node name="TextRect" type="ColorRect" parent="MineSweeperWindow"]
 margin_left = 68.0
 margin_top = 104.0
 margin_right = 256.0
@@ -464,7 +530,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureButton" type="TextureButton" parent="MineSweeperWindow"]
+margin_left = 338.0
+margin_top = 58.0
+margin_right = 362.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[connection signal="pressed" from="Minesweeper" to="." method="_on_Minesweeper_pressed"]
 [connection signal="pressed" from="MineSweeperWindow/Buttons/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MineSweeperWindow/Buttons/Button2" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MineSweeperWindow/Buttons/Button4" to="." method="_on_Button_pressed"]
@@ -529,3 +606,4 @@ __meta__ = {
 [connection signal="pressed" from="MineSweeperWindow/Buttons/Button35" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MineSweeperWindow/Buttons/Button34" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MineSweeperWindow/Buttons/Button33" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MineSweeperWindow/TextureButton" to="." method="_on_TextureButton_pressed"]
