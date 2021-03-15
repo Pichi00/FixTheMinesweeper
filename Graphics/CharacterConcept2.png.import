@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Smile.png-911c922b300dca67b5a1002b5c53567d.stex"
+path="res://.import/CharacterConcept2.png-275f45b80c330580800946bccfb369d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Smile.png"
-dest_files=[ "res://.import/Smile.png-911c922b300dca67b5a1002b5c53567d.stex" ]
+source_file="res://Graphics/CharacterConcept2.png"
+dest_files=[ "res://.import/CharacterConcept2.png-275f45b80c330580800946bccfb369d8.stex" ]
 
 [params]
 
