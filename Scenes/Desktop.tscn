@@ -591,6 +591,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 [connection signal="pressed" from="Minesweeper" to="." method="_on_Minesweeper_pressed"]
+[connection signal="pressed" from="Message2" to="." method="_on_Message2_pressed"]
 [connection signal="pressed" from="Kernel" to="." method="_on_Kernel_pressed"]
 [connection signal="pressed" from="MineSweeperWindow/Buttons/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MineSweeperWindow/Buttons/Button2" to="." method="_on_Button_pressed"]

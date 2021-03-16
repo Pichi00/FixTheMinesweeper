@@ -19,3 +19,7 @@ func _on_TextureButton_pressed():
 
 func _on_Kernel_pressed():
 	get_tree().change_scene("res://Scenes/Game.tscn")
+
+
+func _on_Message2_pressed():
+	$Kernel.show()
