@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 var input_vector = Vector2.ZERO
 var speed = 300
+var direction = "down"
+var hp = 3
 
 func _ready():
 	pass
@@ -29,6 +31,15 @@ func _input(event):
 		$AnimationPlayer.play("Right")
 		$AnimatedSprite.animation = "GoSide"
 		$AnimatedSprite.flip_h = false
+	if Input.is_action_just_pressed("attack") && !$HitArea/CollisionShape2D.disabled:
+		attack()
+	
 
 func attack():
-	pass
+	$HitArea/CollisionShape2D.disabled = true
+	$AttackCooldown.start()
+	print("dupa")
+
+
+func _on_AttackCooldown_timeout():
+	$HitArea/CollisionShape2D.disabled = false
