@@ -105,3 +105,27 @@ func _on_Timer_timeout():
 	else:
 		ss = str(sec)
 	$SystemBar/Time.text = hh+" : "+mm+" : "+ss
+
+func _on_commandstxt_pressed():
+	$Documents/Commands.show()
+
+func _on_Trash_pressed():
+	$Bin.show()
+
+func _on_pokerjpg_pressed():
+	$Pictures/Poker.show()
+
+func _on_Pictures_pressed():
+	$Pictures.show()
+
+func _on_MyComp_pressed():
+	$MyComp.show()
+
+func _on_GamesButton_pressed():
+	$MyComp/Games.show()
+
+func _on_SolitareButton_pressed():
+	$Solitare.show()
+
+func _on_GooseButton_pressed():
+	$Goose.show()

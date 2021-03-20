@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Graphics/SaperWindow.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=2]
@@ -27,32 +27,38 @@
 [ext_resource path="res://Graphics/ttbutton.png" type="Texture" id=25]
 [ext_resource path="res://Graphics/Command.png" type="Texture" id=26]
 [ext_resource path="res://Graphics/EnterButton.png" type="Texture" id=27]
-
-[sub_resource type="DynamicFont" id=13]
-size = 32
-font_data = ExtResource( 17 )
+[ext_resource path="res://Graphics/pokerek.jpg" type="Texture" id=28]
+[ext_resource path="res://Graphics/Jupek.png" type="Texture" id=29]
+[ext_resource path="res://Graphics/Solitare.png" type="Texture" id=30]
+[ext_resource path="res://Graphics/10.png" type="Texture" id=31]
+[ext_resource path="res://Graphics/queen.png" type="Texture" id=32]
+[ext_resource path="res://Graphics/8.png" type="Texture" id=33]
+[ext_resource path="res://Graphics/King.png" type="Texture" id=34]
+[ext_resource path="res://Graphics/ace.png" type="Texture" id=35]
+[ext_resource path="res://Scenes/Cards.gd" type="Script" id=36]
+[ext_resource path="res://Scenes/Goose.tscn" type="PackedScene" id=37]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=3]
 size = 48
 font_data = ExtResource( 17 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.886275, 0.886275, 0.886275, 1 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 32
-font_data = ExtResource( 17 )
-
 [sub_resource type="DynamicFont" id=5]
-size = 86
+size = 32
 font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 32
+size = 86
 font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=7]
@@ -63,17 +69,21 @@ font_data = ExtResource( 17 )
 size = 32
 font_data = ExtResource( 17 )
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 68, 68 )
-
-[sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0.760784, 0.760784, 0.760784, 1 )
-
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=9]
 size = 32
 font_data = ExtResource( 17 )
 
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 68, 68 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.760784, 0.760784, 0.760784, 1 )
+
 [sub_resource type="DynamicFont" id=12]
+size = 32
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=13]
 font_data = ExtResource( 17 )
 
 [node name="Desktop" type="Node2D"]
@@ -88,6 +98,11 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="DesktopIcons" type="Control" parent="."]
 material = ExtResource( 11 )
@@ -221,10 +236,10 @@ __meta__ = {
 }
 
 [node name="Trash" type="TextureButton" parent="DesktopIcons"]
-margin_left = 860.0
-margin_top = 400.0
-margin_right = 892.0
-margin_bottom = 433.0
+margin_left = 858.4
+margin_top = 383.0
+margin_right = 890.4
+margin_bottom = 416.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 7 )
 __meta__ = {
@@ -320,9 +335,6 @@ __meta__ = {
 [node name="MineSweeperWindow" type="Node2D" parent="."]
 visible = false
 position = Vector2( 268, -20 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Window" type="Sprite" parent="MineSweeperWindow"]
 position = Vector2( 200, 284 )
@@ -361,37 +373,37 @@ margin_top = 1.0
 margin_right = 65.0
 margin_bottom = 33.0
 
-[node name="Button4" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
+[node name="Button3" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 66.0
 margin_top = 1.0
 margin_right = 98.0
 margin_bottom = 33.0
 
-[node name="Button3" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
+[node name="Button4" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 99.0
 margin_top = 1.0
 margin_right = 131.0
 margin_bottom = 33.0
 
-[node name="Button8" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
+[node name="Button5" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 132.0
 margin_top = 1.0
 margin_right = 164.0
 margin_bottom = 33.0
 
-[node name="Button7" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
+[node name="Button6" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 1.0
 margin_right = 197.0
 margin_bottom = 33.0
 
-[node name="Button6" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
+[node name="Button7" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 198.0
 margin_top = 1.0
 margin_right = 230.0
 margin_bottom = 33.0
 
-[node name="Button5" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
+[node name="Button8" parent="MineSweeperWindow/Buttons" instance=ExtResource( 2 )]
 margin_left = 231.0
 margin_top = 1.0
 margin_right = 263.0
@@ -784,8 +796,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
 [node name="SystemBar" type="Control" parent="."]
 margin_top = 508.0
 margin_right = 960.0
@@ -808,7 +818,7 @@ __meta__ = {
 margin_left = 824.0
 margin_right = 952.0
 margin_bottom = 32.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "12 : 00 : 00"
 valign = 1
@@ -852,7 +862,7 @@ margin_left = 12.0
 margin_top = 3.0
 margin_right = 264.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Messages"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -875,7 +885,7 @@ margin_left = 172.0
 margin_top = 131.0
 margin_right = 424.0
 margin_bottom = 163.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Message"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -886,7 +896,7 @@ margin_left = 180.0
 margin_top = 216.0
 margin_right = 488.0
 margin_bottom = 272.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "uuu+lhmdr+bnl"
 __meta__ = {
@@ -920,7 +930,7 @@ margin_left = 8.0
 margin_top = 1.0
 margin_right = 260.0
 margin_bottom = 33.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Internet"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -931,8 +941,8 @@ margin_left = 4.0
 margin_top = 35.0
 margin_right = 564.0
 margin_bottom = 67.0
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/caret_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
@@ -973,7 +983,7 @@ margin_left = 4.0
 margin_top = 66.0
 margin_right = 358.0
 margin_bottom = 143.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Error 404"
 __meta__ = {
@@ -985,7 +995,7 @@ margin_left = 4.0
 margin_top = 134.0
 margin_right = 566.0
 margin_bottom = 170.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Unfortunately we couldn't find your page :("
 __meta__ = {
@@ -1018,11 +1028,17 @@ margin_left = 164.0
 margin_top = 55.0
 margin_right = 416.0
 margin_bottom = 87.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Documents"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CloseWindowButton" parent="Documents" instance=ExtResource( 9 )]
+margin_left = 822.0
+margin_top = 58.4
+margin_right = 846.0
+margin_bottom = 80.4
 
 [node name="codetxt" type="TextureButton" parent="Documents"]
 margin_left = 180.0
@@ -1034,22 +1050,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Documents"]
-margin_left = 172.0
-margin_top = 136.0
-margin_right = 224.0
-margin_bottom = 150.0
+[node name="codelabel" type="Label" parent="Documents/codetxt"]
+margin_left = -8.0
+margin_top = 34.0
+margin_right = 44.0
+margin_bottom = 48.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "code.txt"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CloseWindowButton" parent="Documents" instance=ExtResource( 9 )]
-margin_left = 822.0
-margin_top = 58.4
-margin_right = 846.0
-margin_bottom = 80.4
+[node name="commandstxt" type="TextureButton" parent="Documents"]
+margin_left = 268.0
+margin_top = 102.0
+margin_right = 300.0
+margin_bottom = 135.0
+texture_normal = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="commandslabel" type="Label" parent="Documents/commandstxt"]
+margin_left = -28.0
+margin_top = 35.0
+margin_right = 64.0
+margin_bottom = 49.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "commands.txt"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Code" type="Control" parent="Documents"]
 visible = false
@@ -1068,7 +1099,7 @@ margin_left = 348.0
 margin_top = 160.0
 margin_right = 600.0
 margin_bottom = 192.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "code.txt"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1081,14 +1112,14 @@ margin_right = 681.0
 margin_bottom = 184.0
 
 [node name="CodeLabel" type="Label" parent="Documents/Code"]
-margin_left = 348.0
+margin_left = 364.0
 margin_top = 196.0
-margin_right = 420.0
-margin_bottom = 317.0
-custom_fonts/font = SubResource( 7 )
+margin_right = 424.0
+margin_bottom = 348.0
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "a->b
-b->c
+b->c	
 c->d
 ...
 z->a"
@@ -1097,13 +1128,55 @@ __meta__ = {
 }
 
 [node name="CodeLabel2" type="Label" parent="Documents/Code"]
-margin_left = 560.0
-margin_top = 200.0
-margin_right = 632.0
-margin_bottom = 228.0
-custom_fonts/font = SubResource( 7 )
+margin_left = 596.0
+margin_top = 232.0
+margin_right = 656.0
+margin_bottom = 270.0
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "+ -> ."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Commands" type="Control" parent="Documents"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SmallWindow" type="Sprite" parent="Documents/Commands"]
+position = Vector2( 514, 256 )
+texture = ExtResource( 19 )
+
+[node name="Label" type="Label" parent="Documents/Commands"]
+margin_left = 348.0
+margin_top = 160.0
+margin_right = 600.0
+margin_bottom = 192.0
+custom_fonts/font = SubResource( 2 )
+text = "commands.txt"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseWindowButton2" parent="Documents/Commands" instance=ExtResource( 9 )]
+margin_left = 657.0
+margin_top = 162.0
+margin_right = 681.0
+margin_bottom = 184.0
+
+[node name="CodeLabel" type="Label" parent="Documents/Commands"]
+margin_left = 348.0
+margin_top = 196.0
+margin_right = 680.0
+margin_bottom = 348.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "light - light mode
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1134,7 +1207,7 @@ margin_left = 164.0
 margin_top = 55.0
 margin_right = 416.0
 margin_bottom = 87.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Credits"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1145,7 +1218,7 @@ margin_left = 164.0
 margin_top = 98.0
 margin_right = 578.0
 margin_bottom = 157.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Game made for Godot Wild Jam 31
 Theme: \"Something's missing\""
@@ -1158,7 +1231,7 @@ margin_left = 164.0
 margin_top = 160.0
 margin_right = 578.0
 margin_bottom = 219.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Engine: Godot 3.2.1
 Graphics: Aseprite"
@@ -1171,7 +1244,7 @@ margin_left = 161.0
 margin_top = 420.0
 margin_right = 532.0
 margin_bottom = 448.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Author: Piotr Kołlodziejski"
 __meta__ = {
@@ -1183,7 +1256,7 @@ margin_left = 567.0
 margin_top = 420.0
 margin_right = 701.0
 margin_bottom = 448.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "@pichiDev"
 __meta__ = {
@@ -1195,7 +1268,7 @@ margin_left = 724.0
 margin_top = 420.0
 margin_right = 850.0
 margin_bottom = 448.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Pichi Dev"
 __meta__ = {
@@ -1216,7 +1289,7 @@ texture = ExtResource( 23 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Credits/JamLogo"]
 position = Vector2( -6.10352e-05, 0 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="CloseWindowButton" parent="Credits" instance=ExtResource( 9 )]
 margin_left = 822.0
@@ -1299,15 +1372,15 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terminal/BlackSquare"]
 position = Vector2( -6.10352e-05, 0 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="CommandInput" type="TextEdit" parent="Terminal"]
 margin_left = 159.0
 margin_top = 414.0
 margin_right = 710.0
 margin_bottom = 446.0
-custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/caret_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
@@ -1331,7 +1404,7 @@ margin_left = 164.0
 margin_top = 55.0
 margin_right = 416.0
 margin_bottom = 87.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Command prompt"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1353,7 +1426,7 @@ margin_left = 170.0
 margin_top = 364.0
 margin_right = 816.0
 margin_bottom = 400.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0, 0.556863, 0.101961, 1 )
 valign = 2
 autowrap = true
@@ -1362,80 +1435,474 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
+[node name="Bin" type="Control" parent="."]
+visible = false
+margin_left = 152.0
+margin_top = 52.0
+margin_right = 856.0
+margin_bottom = 452.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Window" type="Sprite" parent="Bin"]
+position = Vector2( 352, 200 )
+texture = ExtResource( 16 )
+
+[node name="CloseWindowButton" parent="Bin" instance=ExtResource( 9 )]
+margin_left = 668.0
+margin_top = 6.4
+margin_right = 692.0
+margin_bottom = 28.4
+
+[node name="Label" type="Label" parent="Bin"]
+margin_left = 12.0
+margin_top = 3.0
+margin_right = 168.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 2 )
+text = "Recycle Bin"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MyComp" type="Control" parent="."]
+margin_left = 152.0
+margin_top = 52.0
+margin_right = 856.0
+margin_bottom = 452.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Window" type="Sprite" parent="MyComp"]
+position = Vector2( 352, 200 )
+texture = ExtResource( 16 )
+
+[node name="CloseWindowButton" parent="MyComp" instance=ExtResource( 9 )]
+margin_left = 668.0
+margin_top = 6.4
+margin_right = 692.0
+margin_bottom = 28.4
+
+[node name="Label" type="Label" parent="MyComp"]
+margin_left = 12.0
+margin_top = 3.0
+margin_right = 170.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 2 )
+text = "My Computer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GamesButton" type="TextureButton" parent="MyComp"]
+margin_left = 28.0
+margin_top = 52.0
+margin_right = 60.0
+margin_bottom = 85.0
+texture_normal = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="codelabel" type="Label" parent="MyComp/GamesButton"]
+margin_left = -8.0
+margin_top = 34.0
+margin_right = 44.0
+margin_bottom = 48.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Games"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OtherButton" type="TextureButton" parent="MyComp"]
+margin_left = 99.5
+margin_top = 52.0
+margin_right = 131.5
+margin_bottom = 85.0
+texture_normal = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="codelabel" type="Label" parent="MyComp/OtherButton"]
+margin_left = -2.0
+margin_top = 34.0
+margin_right = 35.0
+margin_bottom = 48.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Other"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Games" type="Control" parent="MyComp"]
+margin_left = -152.0
+margin_top = -52.0
+margin_right = -112.0
+margin_bottom = -12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SmallWindow" type="Sprite" parent="MyComp/Games"]
+position = Vector2( 514, 256 )
+texture = ExtResource( 19 )
+
+[node name="SolitareButton" type="TextureButton" parent="MyComp/Games"]
+margin_left = 360.0
+margin_top = 200.0
+margin_right = 392.0
+margin_bottom = 233.0
+texture_normal = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MyComp/Games/SolitareButton"]
+margin_left = -8.0
+margin_top = 34.0
+margin_right = 44.0
+margin_bottom = 48.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Solitare"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GooseButton" type="TextureButton" parent="MyComp/Games"]
+margin_left = 428.0
+margin_top = 200.0
+margin_right = 460.0
+margin_bottom = 233.0
+texture_normal = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MyComp/Games/GooseButton"]
+margin_left = -4.0
+margin_top = 34.0
+margin_right = 44.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( -204, 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Goose"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MyComp/Games"]
+margin_left = 348.0
+margin_top = 160.0
+margin_right = 600.0
+margin_bottom = 192.0
+custom_fonts/font = SubResource( 2 )
+text = "Games"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseWindowButton2" parent="MyComp/Games" instance=ExtResource( 9 )]
+margin_left = 657.0
+margin_top = 162.0
+margin_right = 681.0
+margin_bottom = 184.0
+
+[node name="Mine3" parent="MyComp/Games" instance=ExtResource( 14 )]
+margin_left = 511.0
+margin_top = 204.0
+margin_right = 539.0
+margin_bottom = 232.0
+
+[node name="codelabel2" type="Label" parent="MyComp/Games/Mine3"]
+margin_left = -29.0
+margin_top = 30.0
+margin_right = 57.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( -204, 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Minesweeper"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pictures" type="Control" parent="."]
+visible = false
+margin_left = 152.0
+margin_top = 52.0
+margin_right = 856.0
+margin_bottom = 452.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Window" type="Sprite" parent="Pictures"]
+position = Vector2( 352, 200 )
+texture = ExtResource( 16 )
+
+[node name="CloseWindowButton" parent="Pictures" instance=ExtResource( 9 )]
+margin_left = 668.0
+margin_top = 6.4
+margin_right = 692.0
+margin_bottom = 28.4
+
+[node name="pokerjpg" type="TextureButton" parent="Pictures"]
+margin_left = 28.0
+margin_top = 50.0
+margin_right = 60.0
+margin_bottom = 83.0
+texture_normal = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pokerlabel" type="Label" parent="Pictures/pokerjpg"]
+margin_left = -12.0
+margin_top = 34.0
+margin_right = 47.0
+margin_bottom = 48.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "poker.jpg"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pictures"]
+margin_left = 12.0
+margin_top = 3.0
+margin_right = 168.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 2 )
+text = "Pictures"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Poker" type="Control" parent="Pictures"]
+visible = false
+margin_left = -152.0
+margin_top = -52.0
+margin_right = -112.0
+margin_bottom = -12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SmallWindow" type="Sprite" parent="Pictures/Poker"]
+position = Vector2( 514, 256 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 19 )
+
+[node name="Poker" type="Sprite" parent="Pictures/Poker"]
+position = Vector2( 514, 271 )
+scale = Vector2( 0.5375, 0.409375 )
+texture = ExtResource( 28 )
+
+[node name="Label" type="Label" parent="Pictures/Poker"]
+margin_left = 259.0
+margin_top = 110.0
+margin_right = 511.0
+margin_bottom = 142.0
+custom_fonts/font = SubResource( 2 )
+text = "poker.jpg"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseWindowButton2" parent="Pictures/Poker" instance=ExtResource( 9 )]
+margin_left = 740.0
+margin_top = 116.0
+margin_right = 764.0
+margin_bottom = 138.0
+
+[node name="Solitare" type="Control" parent="."]
+visible = false
+material = ExtResource( 11 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Window2" type="Sprite" parent="Solitare"]
+use_parent_material = true
+position = Vector2( 496, 241.5 )
+scale = Vector2( 0.854286, 0.8375 )
+texture = ExtResource( 16 )
+
+[node name="SolitareGraphic" type="Sprite" parent="Solitare"]
+use_parent_material = true
+position = Vector2( 496, 256 )
+texture = ExtResource( 30 )
+
+[node name="Label2" type="Label" parent="Solitare"]
+margin_left = 208.0
+margin_top = 75.4
+margin_right = 366.0
+margin_bottom = 107.4
+custom_fonts/font = SubResource( 2 )
+text = "Solitare"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseWindowButton2" parent="Solitare" instance=ExtResource( 9 )]
+margin_left = 763.0
+margin_top = 78.0
+margin_right = 787.0
+margin_bottom = 100.0
+
+[node name="Cards" type="Control" parent="Solitare"]
+material = ExtResource( 11 )
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 36 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JackCard" type="TextureButton" parent="Solitare/Cards"]
+use_parent_material = true
+margin_left = 469.0
+margin_top = 269.0
+margin_right = 523.0
+margin_bottom = 335.0
+texture_normal = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KingCard" type="TextureButton" parent="Solitare/Cards"]
+use_parent_material = true
+margin_left = 250.5
+margin_top = 299.0
+margin_right = 304.5
+margin_bottom = 365.0
+disabled = true
+texture_normal = ExtResource( 34 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TenCard" type="TextureButton" parent="Solitare/Cards"]
+use_parent_material = true
+margin_left = 619.0
+margin_top = 299.0
+margin_right = 673.0
+margin_bottom = 365.0
+disabled = true
+texture_normal = ExtResource( 31 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QueenCard" type="TextureButton" parent="Solitare/Cards"]
+use_parent_material = true
+margin_left = 275.0
+margin_top = 113.0
+margin_right = 329.0
+margin_bottom = 179.0
+disabled = true
+texture_normal = ExtResource( 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AceCard" type="TextureButton" parent="Solitare/Cards"]
+use_parent_material = true
+margin_left = 605.0
+margin_top = 113.0
+margin_right = 659.0
+margin_bottom = 179.0
+disabled = true
+texture_normal = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EightCard" type="TextureButton" parent="Solitare/Cards"]
+use_parent_material = true
+margin_left = 725.0
+margin_top = 113.0
+margin_right = 779.0
+margin_bottom = 179.0
+disabled = true
+texture_normal = ExtResource( 33 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mine" parent="Solitare/Cards" instance=ExtResource( 14 )]
+visible = false
+margin_left = 424.0
+margin_top = 148.0
+margin_right = 452.0
+margin_bottom = 176.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="Goose" type="Control" parent="."]
+visible = false
+material = ExtResource( 11 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Window2" type="Sprite" parent="Goose"]
+use_parent_material = true
+position = Vector2( 504, 252 )
+texture = ExtResource( 16 )
+
+[node name="Label2" type="Label" parent="Goose"]
+margin_left = 164.0
+margin_top = 55.0
+margin_right = 320.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 2 )
+text = "Goose Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseWindowButton2" parent="Goose" instance=ExtResource( 9 )]
+margin_left = 820.0
+margin_top = 58.4
+margin_right = 844.0
+margin_bottom = 80.4
+
+[node name="ColorRect" type="ColorRect" parent="Goose"]
+margin_left = 180.0
+margin_top = 108.0
+margin_right = 828.0
+margin_bottom = 376.0
+color = Color( 0.0235294, 0.490196, 0.513726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Goose" parent="Goose" instance=ExtResource( 37 )]
+position = Vector2( 252, 196 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="DesktopIcons/MyComp" to="." method="_on_MyComp_pressed"]
 [connection signal="pressed" from="DesktopIcons/TerminalButton" to="." method="_on_TerminalButton_pressed"]
 [connection signal="pressed" from="DesktopIcons/Documents" to="." method="_on_Documents_pressed"]
+[connection signal="pressed" from="DesktopIcons/Pictures" to="." method="_on_Pictures_pressed"]
 [connection signal="pressed" from="DesktopIcons/Explorer" to="." method="_on_Explorer_pressed"]
+[connection signal="pressed" from="DesktopIcons/Trash" to="." method="_on_Trash_pressed"]
 [connection signal="pressed" from="DesktopIcons/Minesweeper" to="." method="_on_Minesweeper_pressed"]
 [connection signal="pressed" from="DesktopIcons/Message" to="." method="_on_Message_pressed"]
 [connection signal="pressed" from="DesktopIcons/Credits" to="." method="_on_Credits_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button2" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button4" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button3" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button8" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button7" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button6" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button5" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button16" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button15" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button14" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button13" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button12" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button11" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button10" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button9" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button32" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button31" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button30" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button29" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button28" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button27" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button26" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button25" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button24" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button23" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button22" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button21" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button20" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button19" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button18" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button17" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button64" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button63" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button62" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button61" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button60" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button59" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button58" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button57" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button56" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button55" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button54" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button53" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button52" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button51" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button50" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button49" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button48" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button47" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button46" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button45" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button44" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button43" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button42" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button41" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button40" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button39" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button38" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button37" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button36" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button35" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button34" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button33" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Messages/ImportantMessage" to="." method="_on_ImportantMessage_pressed"]
 [connection signal="pressed" from="Internet/TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="Documents/codetxt" to="." method="_on_codetxt_pressed"]
+[connection signal="pressed" from="Documents/commandstxt" to="." method="_on_commandstxt_pressed"]
 [connection signal="mouse_entered" from="Credits/JamLogo" to="." method="_on_JamLogo_mouse_entered"]
 [connection signal="mouse_exited" from="Credits/JamLogo" to="." method="_on_JamLogo_mouse_exited"]
 [connection signal="pressed" from="Credits/TwitterButton" to="." method="_on_TwitterButton_pressed"]
@@ -1443,4 +1910,13 @@ autostart = true
 [connection signal="mouse_entered" from="Terminal/BlackSquare" to="." method="_on_BlackSquare_mouse_entered"]
 [connection signal="mouse_exited" from="Terminal/BlackSquare" to="." method="_on_BlackSquare_mouse_exited"]
 [connection signal="pressed" from="Terminal/EnterButton" to="." method="_on_EnterButton_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="MyComp/GamesButton" to="." method="_on_GamesButton_pressed"]
+[connection signal="pressed" from="MyComp/Games/SolitareButton" to="." method="_on_SolitareButton_pressed"]
+[connection signal="pressed" from="MyComp/Games/GooseButton" to="." method="_on_GooseButton_pressed"]
+[connection signal="pressed" from="Pictures/pokerjpg" to="." method="_on_pokerjpg_pressed"]
+[connection signal="pressed" from="Solitare/Cards/JackCard" to="Solitare/Cards" method="_on_JackCard_pressed"]
+[connection signal="pressed" from="Solitare/Cards/KingCard" to="Solitare/Cards" method="_on_KingCard_pressed"]
+[connection signal="pressed" from="Solitare/Cards/TenCard" to="Solitare/Cards" method="_on_10Card_pressed"]
+[connection signal="pressed" from="Solitare/Cards/QueenCard" to="Solitare/Cards" method="_on_QueenCard_pressed"]
+[connection signal="pressed" from="Solitare/Cards/AceCard" to="Solitare/Cards" method="_on_AceCard_pressed"]
+[connection signal="pressed" from="Solitare/Cards/EightCard" to="Solitare/Cards" method="_on_8Card_pressed"]
