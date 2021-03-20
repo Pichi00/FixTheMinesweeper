@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Graphics/SaperWindow.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=2]
@@ -25,6 +25,12 @@
 [ext_resource path="res://Graphics/GodotWildJamLogo.png" type="Texture" id=23]
 [ext_resource path="res://Graphics/itchbutton.png" type="Texture" id=24]
 [ext_resource path="res://Graphics/ttbutton.png" type="Texture" id=25]
+[ext_resource path="res://Graphics/Command.png" type="Texture" id=26]
+[ext_resource path="res://Graphics/EnterButton.png" type="Texture" id=27]
+
+[sub_resource type="DynamicFont" id=13]
+size = 32
+font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -34,10 +40,10 @@ font_data = ExtResource( 17 )
 size = 48
 font_data = ExtResource( 17 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.886275, 0.886275, 0.886275, 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 32
 font_data = ExtResource( 17 )
 
@@ -60,6 +66,16 @@ font_data = ExtResource( 17 )
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 68, 68 )
 
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.760784, 0.760784, 0.760784, 1 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 32
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 17 )
+
 [node name="Desktop" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -80,6 +96,7 @@ margin_right = 960.0
 margin_bottom = 540.0
 mouse_filter = 2
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -107,7 +124,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Terminal" type="TextureButton" parent="DesktopIcons"]
+[node name="TerminalButton" type="TextureButton" parent="DesktopIcons"]
 use_parent_material = true
 margin_left = 176.0
 margin_top = 252.0
@@ -119,7 +136,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TerminalLabel" type="Label" parent="DesktopIcons/Terminal"]
+[node name="TerminalLabel" type="Label" parent="DesktopIcons/TerminalButton"]
 margin_left = -5.0
 margin_top = 36.0
 margin_right = 81.0
@@ -182,9 +199,9 @@ __meta__ = {
 [node name="Explorer" type="TextureButton" parent="DesktopIcons"]
 use_parent_material = true
 margin_left = 176.0
-margin_top = 372.0
+margin_top = 376.0
 margin_right = 208.0
-margin_bottom = 405.0
+margin_bottom = 409.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 12 )
 __meta__ = {
@@ -204,10 +221,10 @@ __meta__ = {
 }
 
 [node name="Trash" type="TextureButton" parent="DesktopIcons"]
-margin_left = 868.0
-margin_top = 444.0
-margin_right = 900.0
-margin_bottom = 477.0
+margin_left = 860.0
+margin_top = 400.0
+margin_right = 892.0
+margin_bottom = 433.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 7 )
 __meta__ = {
@@ -769,6 +786,36 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
+[node name="SystemBar" type="Control" parent="."]
+margin_top = 508.0
+margin_right = 960.0
+margin_bottom = 540.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="SystemBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.839216, 0.839216, 0.839216, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="SystemBar"]
+margin_left = 824.0
+margin_right = 952.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "12 : 00 : 00"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Messages" type="Control" parent="."]
 visible = false
 margin_left = 152.0
@@ -884,8 +931,8 @@ margin_left = 4.0
 margin_top = 35.0
 margin_right = 564.0
 margin_bottom = 67.0
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/caret_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = 0
@@ -1062,6 +1109,7 @@ __meta__ = {
 }
 
 [node name="Credits" type="Control" parent="."]
+visible = false
 material = ExtResource( 11 )
 margin_right = 960.0
 margin_bottom = 540.0
@@ -1105,11 +1153,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="Credits"]
+[node name="Label6" type="Label" parent="Credits"]
 margin_left = 164.0
-margin_top = 408.0
+margin_top = 160.0
 margin_right = 578.0
-margin_bottom = 443.0
+margin_bottom = 219.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Engine: Godot 3.2.1
+Graphics: Aseprite"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Credits"]
+margin_left = 161.0
+margin_top = 420.0
+margin_right = 532.0
+margin_bottom = 448.0
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Author: Piotr Kołlodziejski"
@@ -1117,9 +1178,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label4" type="Label" parent="Credits"]
+margin_left = 567.0
+margin_top = 420.0
+margin_right = 701.0
+margin_bottom = 448.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "@pichiDev"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="Credits"]
+margin_left = 724.0
+margin_top = 420.0
+margin_right = 850.0
+margin_bottom = 448.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Pichi Dev"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="JamLogo" type="Area2D" parent="Credits"]
 use_parent_material = true
-position = Vector2( 728, 156 )
+position = Vector2( 764, 157 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1140,35 +1225,151 @@ margin_right = 846.0
 margin_bottom = 80.4
 mouse_default_cursor_shape = 2
 
-[node name="TextureButton" type="TextureButton" parent="Credits"]
+[node name="TwitterButton" type="TextureButton" parent="Credits"]
 use_parent_material = true
-margin_left = 681.0
-margin_top = 372.0
-margin_right = 715.0
-margin_bottom = 406.0
+margin_left = 600.0
+margin_top = 350.0
+margin_right = 634.0
+margin_bottom = 384.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton2" type="TextureButton" parent="Credits"]
+[node name="ItchButton" type="TextureButton" parent="Credits"]
 use_parent_material = true
-margin_left = 773.0
-margin_top = 372.0
-margin_right = 807.0
-margin_bottom = 406.0
+margin_left = 752.0
+margin_top = 350.0
+margin_right = 786.0
+margin_bottom = 384.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 24 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Terminal" type="Control" parent="."]
+visible = false
+material = ExtResource( 11 )
+margin_right = 960.0
+margin_bottom = 544.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Command" type="Sprite" parent="Terminal"]
+use_parent_material = true
+position = Vector2( 504, 251 )
+texture = ExtResource( 26 )
+
+[node name="ColorRect" type="ColorRect" parent="Terminal"]
+margin_left = 157.0
+margin_top = 86.0
+margin_right = 852.0
+margin_bottom = 449.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mine3" parent="Terminal" instance=ExtResource( 14 )]
+margin_left = 708.0
+margin_top = 124.0
+margin_right = 736.0
+margin_bottom = 152.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="BlackSquare" type="Area2D" parent="Terminal"]
+use_parent_material = true
+position = Vector2( 696, 162 )
+
+[node name="ColorRect" type="ColorRect" parent="Terminal/BlackSquare"]
+margin_left = -68.0001
+margin_top = -68.0
+margin_right = 67.9999
+margin_bottom = 68.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terminal/BlackSquare"]
+position = Vector2( -6.10352e-05, 0 )
+shape = SubResource( 9 )
+
+[node name="CommandInput" type="TextEdit" parent="Terminal"]
+margin_left = 159.0
+margin_top = 414.0
+margin_right = 710.0
+margin_bottom = 446.0
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
+custom_colors/caret_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+fold_gutter = true
+context_menu_enabled = false
+shortcut_keys_enabled = false
+caret_block_mode = true
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseWindowButton" parent="Terminal" instance=ExtResource( 9 )]
+margin_left = 820.0
+margin_top = 58.4
+margin_right = 844.0
+margin_bottom = 80.4
+
+[node name="Label3" type="Label" parent="Terminal"]
+margin_left = 164.0
+margin_top = 55.0
+margin_right = 416.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 1 )
+text = "Command prompt"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnterButton" type="TextureButton" parent="Terminal"]
+use_parent_material = true
+margin_left = 727.0
+margin_top = 414.0
+margin_right = 847.0
+margin_bottom = 446.0
+texture_normal = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CommandLabel" type="Label" parent="Terminal"]
+margin_left = 170.0
+margin_top = 364.0
+margin_right = 816.0
+margin_bottom = 400.0
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0, 0.556863, 0.101961, 1 )
+valign = 2
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+[connection signal="pressed" from="DesktopIcons/TerminalButton" to="." method="_on_TerminalButton_pressed"]
 [connection signal="pressed" from="DesktopIcons/Documents" to="." method="_on_Documents_pressed"]
 [connection signal="pressed" from="DesktopIcons/Explorer" to="." method="_on_Explorer_pressed"]
 [connection signal="pressed" from="DesktopIcons/Minesweeper" to="." method="_on_Minesweeper_pressed"]
 [connection signal="pressed" from="DesktopIcons/Message" to="." method="_on_Message_pressed"]
 [connection signal="pressed" from="DesktopIcons/Credits" to="." method="_on_Credits_pressed"]
-[connection signal="pressed" from="MineSweeperWindow/Buttons/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MineSweeperWindow/Buttons/Button2" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MineSweeperWindow/Buttons/Button4" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MineSweeperWindow/Buttons/Button3" to="." method="_on_Button_pressed"]
@@ -1237,3 +1438,9 @@ __meta__ = {
 [connection signal="pressed" from="Documents/codetxt" to="." method="_on_codetxt_pressed"]
 [connection signal="mouse_entered" from="Credits/JamLogo" to="." method="_on_JamLogo_mouse_entered"]
 [connection signal="mouse_exited" from="Credits/JamLogo" to="." method="_on_JamLogo_mouse_exited"]
+[connection signal="pressed" from="Credits/TwitterButton" to="." method="_on_TwitterButton_pressed"]
+[connection signal="pressed" from="Credits/ItchButton" to="." method="_on_ItchButton_pressed"]
+[connection signal="mouse_entered" from="Terminal/BlackSquare" to="." method="_on_BlackSquare_mouse_entered"]
+[connection signal="mouse_exited" from="Terminal/BlackSquare" to="." method="_on_BlackSquare_mouse_exited"]
+[connection signal="pressed" from="Terminal/EnterButton" to="." method="_on_EnterButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
