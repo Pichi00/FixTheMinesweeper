@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bep.wav-cec6908d3f80c2f1df23d9ab553fdda0.sample"
+
+[deps]
+
+source_file="res://Audio/bep.wav"
+dest_files=[ "res://.import/bep.wav-cec6908d3f80c2f1df23d9ab553fdda0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -2,7 +2,7 @@ extends Node2D
 
 var logo_drag = false
 var square_drag = false
-var hour = 12
+var hour = 0
 var minute = 0
 var sec = 0
 var hh
@@ -11,6 +11,8 @@ var ss
 
 func _ready():
 	$Credits/JamLogo.input_pickable = true
+	for item in get_tree().get_nodes_in_group("DesktopIcon"):
+		item.disabled = true
 
 func _input(event):
 	$UI/MinesLabel.text = "Mines: " + str(Global.mines) + "/10"
@@ -33,14 +35,6 @@ func _on_Message_pressed():
 
 func _on_ImportantMessage_pressed():
 	$Messages/CodedMessage.show()
-
-
-func _on_TextureButton_pressed():
-	if $Internet/TextEdit.text == "www.mines.com":
-		$Internet/ErrorMessage.hide()
-		$Internet/Mine.show()
-	else:
-		$Internet/ErrorMessage.show()
 
 func _on_Explorer_pressed():
 	$Internet.show()
@@ -68,10 +62,7 @@ func _on_ItchButton_pressed():
 
 
 func _on_EnterButton_pressed():
-	if $Terminal/CommandInput.text == "light":
-		$Terminal/ColorRect.color = Color(255,255,255)
-	else:
-		$Terminal/CommandLabel.text = "\n Unknown command"
+	_on_CommandInput_text_entered($Terminal/CommandInput.text)
 
 func _on_TerminalButton_pressed():
 	$Terminal.show()
@@ -129,3 +120,77 @@ func _on_SolitareButton_pressed():
 
 func _on_GooseButton_pressed():
 	$Goose.show()
+
+func _on_MystButton_pressed():
+	$MysteriousButton.show()
+
+func _on_OtherButton_pressed():
+	$MyComp/Other.show()
+
+func _on_MysteriousButton_pressed():
+	if sec % 10 == 0:
+		$MysteriousButton/Mine.show()
+
+func _on_HonkButton_pressed():
+	$Goose/Goose/Timer.stop()
+	$HonkSound.play()
+	$Goose/Goose/AnimationPlayer.play("Scared")
+	#$Goose/Goose.velocity = 0
+
+func new_game():
+	Global.mines = 0
+	get_tree().change_scene("res://Scenes/Desktop.tscn")
+
+func _on_PlayButton_pressed():
+	$AnimationPlayer.play("NewGame")
+	$Timer.start()
+
+func start_game():
+	for item in get_tree().get_nodes_in_group("MineButton"):
+		item.disabled = false
+	for item in get_tree().get_nodes_in_group("DesktopIcon"):
+		item.disabled = false
+	for item in get_tree().get_nodes_in_group("CloseButton"):
+		item.disabled = false
+	get_tree().get_nodes_in_group("UI")[0].show()
+
+func game_over():
+	for item in get_tree().get_nodes_in_group("MineButton"):
+		item.disabled = true
+	for item in get_tree().get_nodes_in_group("DesktopIcon"):
+		item.disabled = true
+	for item in get_tree().get_nodes_in_group("CloseButton"):
+		item.disabled = true
+	for item in get_tree().get_nodes_in_group("Window"):
+		item.hide()
+	$GameOver.show()
+	$VictorySound.play()
+	$Timer.stop()
+	$GameOver/FinishTime.text = "Your time: " + hh + ":" + mm + ":" + ss
+	
+
+
+func _on_CommandInput_text_entered(new_text):
+	if $Terminal/CommandInput.text == "light":
+		$Terminal/ColorRect.color = Color(255,255,255)
+	elif $Terminal/CommandInput.text == "dark":
+		$Terminal/ColorRect.color = Color(0,0,0)
+	elif $Terminal/CommandInput.text == "unlock honk":
+		$Terminal/CommandLabel.text = "\n Honk unlocked"
+		$Goose/HonkButton.show()
+	elif $Terminal/CommandInput.text == "when to click":
+		$Terminal/CommandLabel.text = "\n Click at 00, 10, 20, 30, 40 or 50."
+	else:
+		$Terminal/CommandLabel.text = "\n Unknown command"
+
+
+func _on_TextEdit_text_entered(new_text):
+	if $Internet/TextEdit.text == "www.mines.com":
+		$Internet/ErrorMessage.hide()
+		$Internet/Mine.show()
+	else:
+		$Internet/ErrorMessage.show()
+
+
+func _on_SearchButton_pressed():
+	_on_TextEdit_text_entered($Internet/TextEdit.text)

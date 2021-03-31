@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://Graphics/SaperWindow.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=2]
@@ -37,33 +37,188 @@
 [ext_resource path="res://Graphics/ace.png" type="Texture" id=35]
 [ext_resource path="res://Scenes/Cards.gd" type="Script" id=36]
 [ext_resource path="res://Scenes/Goose.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Graphics/GooseWindow.png" type="Texture" id=38]
+[ext_resource path="res://Graphics/HonkLocked.png" type="Texture" id=39]
+[ext_resource path="res://Graphics/HonkUnlocked.png" type="Texture" id=40]
+[ext_resource path="res://Graphics/MysteriousButttonPressed.png" type="Texture" id=41]
+[ext_resource path="res://Graphics/MysteriousButtton.png" type="Texture" id=42]
+[ext_resource path="res://Graphics/MysteriousWindow.png" type="Texture" id=43]
+[ext_resource path="res://Graphics/Padlock.png" type="Texture" id=44]
+[ext_resource path="res://Graphics/MainMenu.png" type="Texture" id=45]
+[ext_resource path="res://Graphics/play.png" type="Texture" id=46]
+[ext_resource path="res://Graphics/NOTmine.png" type="Texture" id=47]
+[ext_resource path="res://Graphics/Credits1.png" type="Texture" id=48]
+[ext_resource path="res://Audio/bep.wav" type="AudioStream" id=49]
+[ext_resource path="res://Graphics/CoolSmile.png" type="Texture" id=50]
+[ext_resource path="res://Audio/honk.wav" type="AudioStream" id=51]
+[ext_resource path="res://Audio/victory.wav" type="AudioStream" id=52]
+[ext_resource path="res://Scenes/Window.gd" type="Script" id=53]
+[ext_resource path="res://Audio/collect.wav" type="AudioStream" id=54]
+[ext_resource path="res://Scenes/Mine.gd" type="Script" id=55]
 
-[sub_resource type="DynamicFont" id=1]
-size = 32
-font_data = ExtResource( 17 )
+[sub_resource type="Animation" id=1]
+resource_name = "NewGame"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainMenu:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MineSweeperWindow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MineSweeperWindow/Smile:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "default" ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MineSweeperWindow/Label:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Hello stranger
+Let's play " ]
+}
 
-[sub_resource type="DynamicFont" id=2]
-size = 32
-font_data = ExtResource( 17 )
+[sub_resource type="Animation" id=2]
+resource_name = "StartSearching"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("MineSweeperWindow/Smile:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "xeyes", "confused", "worried" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MineSweeperWindow/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3, 6, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "Game over!", "Wait...
+Something's wrong.", "There are no mines here.", "Can you find all the mines
+and fix my game?" ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_game"
+} ]
+}
 
-[sub_resource type="DynamicFont" id=3]
-size = 48
-font_data = ExtResource( 17 )
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.886275, 0.886275, 0.886275, 1 )
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 32
-font_data = ExtResource( 17 )
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="DynamicFont" id=6]
-size = 86
-font_data = ExtResource( 17 )
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 96, 0, 32, 32 )
 
-[sub_resource type="DynamicFont" id=7]
-size = 32
-font_data = ExtResource( 17 )
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "xeyes",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "confused",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "worried",
+"speed": 5.0
+} ]
 
 [sub_resource type="DynamicFont" id=8]
 size = 32
@@ -73,20 +228,64 @@ font_data = ExtResource( 17 )
 size = 32
 font_data = ExtResource( 17 )
 
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 68, 68 )
+[sub_resource type="DynamicFont" id=10]
+size = 48
+font_data = ExtResource( 17 )
 
-[sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0.760784, 0.760784, 0.760784, 1 )
+[sub_resource type="StyleBoxEmpty" id=26]
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="StyleBoxFlat" id=27]
+bg_color = Color( 0.85098, 0.85098, 0.85098, 1 )
+border_color = Color( 0.839216, 0.839216, 0.839216, 1 )
+corner_detail = 1
+
+[sub_resource type="DynamicFont" id=28]
 size = 32
 font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=13]
+size = 86
 font_data = ExtResource( 17 )
 
-[node name="Desktop" type="Node2D"]
+[sub_resource type="DynamicFont" id=14]
+size = 32
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 32
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 32
+font_data = ExtResource( 17 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 68, 68 )
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 0.839216, 0.839216, 0.839216, 1 )
+corner_detail = 1
+
+[sub_resource type="DynamicFont" id=24]
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=20]
+font_data = ExtResource( 17 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 350, 17.5 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 32
+font_data = ExtResource( 17 )
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 324, 10 )
+
+[node name="Desktop" type="Node2D" groups=[
+"Desktop",
+]]
 script = ExtResource( 3 )
 
 [node name="Background" type="ColorRect" parent="."]
@@ -100,9 +299,24 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 49 )
+
+[node name="HonkSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 51 )
+volume_db = -15.0
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 52 )
+volume_db = -15.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=[
+"AnimPlay",
+]]
+method_call_mode = 1
+anims/NewGame = SubResource( 1 )
+anims/StartSearching = SubResource( 2 )
 
 [node name="DesktopIcons" type="Control" parent="."]
 material = ExtResource( 11 )
@@ -115,12 +329,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MyComp" type="TextureButton" parent="DesktopIcons"]
+[node name="MyComp" type="TextureButton" parent="DesktopIcons" groups=[
+"DesktopIcon",
+]]
 use_parent_material = true
 margin_left = 40.0
-margin_top = 16.0
+margin_top = 20.0
 margin_right = 72.0
-margin_bottom = 49.0
+margin_bottom = 53.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 6 )
 __meta__ = {
@@ -139,7 +355,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TerminalButton" type="TextureButton" parent="DesktopIcons"]
+[node name="TerminalButton" type="TextureButton" parent="DesktopIcons" groups=[
+"DesktopIcon",
+]]
 use_parent_material = true
 margin_left = 176.0
 margin_top = 252.0
@@ -163,7 +381,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Documents" type="TextureButton" parent="DesktopIcons"]
+[node name="Documents" type="TextureButton" parent="DesktopIcons" groups=[
+"DesktopIcon",
+]]
 use_parent_material = true
 margin_left = 40.0
 margin_top = 132.0
@@ -187,7 +407,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Pictures" type="TextureButton" parent="DesktopIcons"]
+[node name="Pictures" type="TextureButton" parent="DesktopIcons" groups=[
+"DesktopIcon",
+]]
 use_parent_material = true
 margin_left = 40.0
 margin_top = 252.0
@@ -211,7 +433,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Explorer" type="TextureButton" parent="DesktopIcons"]
+[node name="Explorer" type="TextureButton" parent="DesktopIcons" groups=[
+"DesktopIcon",
+]]
 use_parent_material = true
 margin_left = 176.0
 margin_top = 376.0
@@ -225,9 +449,9 @@ __meta__ = {
 
 [node name="ExplorerLabel" type="Label" parent="DesktopIcons/Explorer"]
 margin_left = -5.0
-margin_top = 36.0
+margin_top = 41.0
 margin_right = 81.0
-margin_bottom = 50.0
+margin_bottom = 55.0
 rect_scale = Vector2( 0.5, 0.5 )
 text = "Internet"
 align = 1
@@ -235,7 +459,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Trash" type="TextureButton" parent="DesktopIcons"]
+[node name="Trash" type="TextureButton" parent="DesktopIcons" groups=[
+"DesktopIcon",
+]]
+use_parent_material = true
 margin_left = 858.4
 margin_top = 383.0
 margin_right = 890.4
@@ -258,12 +485,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Minesweeper" type="TextureButton" parent="DesktopIcons"]
+[node name="Minesweeper" type="TextureButton" parent="DesktopIcons" groups=[
+"DesktopIcon",
+]]
 use_parent_material = true
 margin_left = 176.0
-margin_top = 16.0
+margin_top = 24.0
 margin_right = 208.0
-margin_bottom = 49.0
+margin_bottom = 57.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 8 )
 __meta__ = {
@@ -283,7 +512,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Message" type="TextureButton" parent="DesktopIcons"]
+[node name="Message" type="TextureButton" parent="DesktopIcons" groups=[
+"DesktopIcon",
+]]
 use_parent_material = true
 margin_left = 176.0
 margin_top = 132.0
@@ -307,23 +538,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credits" type="TextureButton" parent="DesktopIcons"]
+[node name="Credits" type="TextureButton" parent="DesktopIcons" groups=[
+"DesktopIcon",
+]]
 use_parent_material = true
 margin_left = 40.0
 margin_top = 384.0
 margin_right = 72.0
 margin_bottom = 417.0
 rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 10 )
+texture_normal = ExtResource( 48 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CreditslLabel" type="Label" parent="DesktopIcons/Credits"]
 margin_left = -6.0
-margin_top = 32.0
+margin_top = 38.0
 margin_right = 80.0
-margin_bottom = 46.0
+margin_bottom = 52.0
 rect_scale = Vector2( 0.5, 0.5 )
 text = "Credits"
 align = 1
@@ -346,12 +579,6 @@ __meta__ = {
 [node name="Mine2" parent="MineSweeperWindow" groups=[
 "MineButton",
 ] instance=ExtResource( 14 )]
-margin_left = 41.0
-margin_top = 56.0
-margin_right = 69.0
-margin_bottom = 84.0
-rect_scale = Vector2( 0.8, 0.8 )
-disabled = true
 
 [node name="Buttons" type="Control" parent="MineSweeperWindow"]
 margin_left = 68.0
@@ -738,10 +965,10 @@ margin_top = 232.0
 margin_right = 263.0
 margin_bottom = 264.0
 
-[node name="Smile" type="Sprite" parent="MineSweeperWindow"]
+[node name="Smile" type="AnimatedSprite" parent="MineSweeperWindow"]
 material = ExtResource( 11 )
 position = Vector2( 288, 128 )
-texture = ExtResource( 5 )
+frames = SubResource( 7 )
 
 [node name="TextRect" type="ColorRect" parent="MineSweeperWindow"]
 margin_left = 68.0
@@ -782,7 +1009,6 @@ __meta__ = {
 }
 
 [node name="Mine" parent="UI" instance=ExtResource( 14 )]
-rect_scale = Vector2( 0.8, 0.8 )
 
 [node name="MinesLabel" type="Label" parent="UI"]
 margin_left = 15.9999
@@ -818,7 +1044,7 @@ __meta__ = {
 margin_left = 824.0
 margin_right = 952.0
 margin_bottom = 32.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "12 : 00 : 00"
 valign = 1
@@ -826,7 +1052,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Messages" type="Control" parent="."]
+[node name="Messages" type="Control" parent="." groups=[
+"Window",
+]]
 visible = false
 margin_left = 152.0
 margin_top = 52.0
@@ -862,7 +1090,7 @@ margin_left = 12.0
 margin_top = 3.0
 margin_right = 264.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "Messages"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -885,7 +1113,7 @@ margin_left = 172.0
 margin_top = 131.0
 margin_right = 424.0
 margin_bottom = 163.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "Message"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -896,7 +1124,7 @@ margin_left = 180.0
 margin_top = 216.0
 margin_right = 488.0
 margin_bottom = 272.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "uuu+lhmdr+bnl"
 __meta__ = {
@@ -909,8 +1137,9 @@ margin_top = 134.0
 margin_right = 502.0
 margin_bottom = 156.0
 
-[node name="Internet" type="Control" parent="."]
-visible = false
+[node name="Internet" type="Control" parent="." groups=[
+"Window",
+]]
 material = ExtResource( 11 )
 margin_left = 156.0
 margin_top = 54.0
@@ -930,30 +1159,34 @@ margin_left = 8.0
 margin_top = 1.0
 margin_right = 260.0
 margin_bottom = 33.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "Internet"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextEdit" type="TextEdit" parent="Internet"]
-margin_left = 4.0
-margin_top = 35.0
-margin_right = 564.0
+[node name="TextEdit" type="LineEdit" parent="Internet"]
+margin_left = 5.0
+margin_top = 36.0
+margin_right = 560.0
 margin_bottom = 67.0
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
-custom_colors/caret_color = Color( 0, 0, 0, 1 )
+mouse_filter = 1
+custom_styles/focus = SubResource( 26 )
+custom_styles/normal = SubResource( 27 )
+custom_fonts/font = SubResource( 28 )
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_constants/line_spacing = 0
+custom_colors/clear_button_color = Color( 0, 0, 0, 1 )
+max_length = 76
 context_menu_enabled = false
-caret_block_mode = true
+clear_button_enabled = true
+placeholder_alpha = 0.7
 caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="Internet"]
+[node name="SearchButton" type="TextureButton" parent="Internet"]
 material = ExtResource( 11 )
 margin_left = 568.0
 margin_top = 35.0
@@ -983,7 +1216,7 @@ margin_left = 4.0
 margin_top = 66.0
 margin_right = 358.0
 margin_bottom = 143.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Error 404"
 __meta__ = {
@@ -995,7 +1228,7 @@ margin_left = 4.0
 margin_top = 134.0
 margin_right = 566.0
 margin_bottom = 170.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Unfortunately we couldn't find your page :("
 __meta__ = {
@@ -1004,13 +1237,10 @@ __meta__ = {
 
 [node name="Mine" parent="Internet" instance=ExtResource( 14 )]
 visible = false
-margin_left = 264.0
-margin_top = 118.0
-margin_right = 292.0
-margin_bottom = 146.0
-rect_scale = Vector2( 6, 6 )
 
-[node name="Documents" type="Control" parent="."]
+[node name="Documents" type="Control" parent="." groups=[
+"Window",
+]]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -1028,7 +1258,7 @@ margin_left = 164.0
 margin_top = 55.0
 margin_right = 416.0
 margin_bottom = 87.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "Documents"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1099,7 +1329,7 @@ margin_left = 348.0
 margin_top = 160.0
 margin_right = 600.0
 margin_bottom = 192.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "code.txt"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1116,7 +1346,7 @@ margin_left = 364.0
 margin_top = 196.0
 margin_right = 424.0
 margin_bottom = 348.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 15 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "a->b
 b->c	
@@ -1132,7 +1362,7 @@ margin_left = 596.0
 margin_top = 232.0
 margin_right = 656.0
 margin_bottom = 270.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 15 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "+ -> ."
 __meta__ = {
@@ -1156,7 +1386,7 @@ margin_left = 348.0
 margin_top = 160.0
 margin_right = 600.0
 margin_bottom = 192.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "commands.txt"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1173,15 +1403,19 @@ margin_left = 348.0
 margin_top = 196.0
 margin_right = 680.0
 margin_bottom = 348.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 15 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "light - light mode
-"
+text = "unlock honk
+when to click
+light
+dark"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credits" type="Control" parent="."]
+[node name="Credits" type="Control" parent="." groups=[
+"Window",
+]]
 visible = false
 material = ExtResource( 11 )
 margin_right = 960.0
@@ -1196,18 +1430,13 @@ position = Vector2( 504, 252 )
 texture = ExtResource( 16 )
 
 [node name="Mine2" parent="Credits" instance=ExtResource( 14 )]
-margin_left = 708.0
-margin_top = 124.0
-margin_right = 736.0
-margin_bottom = 152.0
-rect_scale = Vector2( 2, 2 )
 
 [node name="Label" type="Label" parent="Credits"]
 margin_left = 164.0
 margin_top = 55.0
 margin_right = 416.0
 margin_bottom = 87.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "Credits"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1218,7 +1447,7 @@ margin_left = 164.0
 margin_top = 98.0
 margin_right = 578.0
 margin_bottom = 157.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Game made for Godot Wild Jam 31
 Theme: \"Something's missing\""
@@ -1231,7 +1460,7 @@ margin_left = 164.0
 margin_top = 160.0
 margin_right = 578.0
 margin_bottom = 219.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Engine: Godot 3.2.1
 Graphics: Aseprite"
@@ -1244,7 +1473,7 @@ margin_left = 161.0
 margin_top = 420.0
 margin_right = 532.0
 margin_bottom = 448.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Author: Piotr Kołlodziejski"
 __meta__ = {
@@ -1256,7 +1485,7 @@ margin_left = 567.0
 margin_top = 420.0
 margin_right = 701.0
 margin_bottom = 448.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "@pichiDev"
 __meta__ = {
@@ -1268,7 +1497,7 @@ margin_left = 724.0
 margin_top = 420.0
 margin_right = 850.0
 margin_bottom = 448.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Pichi Dev"
 __meta__ = {
@@ -1289,7 +1518,7 @@ texture = ExtResource( 23 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Credits/JamLogo"]
 position = Vector2( -6.10352e-05, 0 )
-shape = SubResource( 10 )
+shape = SubResource( 17 )
 
 [node name="CloseWindowButton" parent="Credits" instance=ExtResource( 9 )]
 margin_left = 822.0
@@ -1322,7 +1551,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Terminal" type="Control" parent="."]
+[node name="Terminal" type="Control" parent="." groups=[
+"Window",
+]]
 visible = false
 material = ExtResource( 11 )
 margin_right = 960.0
@@ -1349,11 +1580,6 @@ __meta__ = {
 }
 
 [node name="Mine3" parent="Terminal" instance=ExtResource( 14 )]
-margin_left = 708.0
-margin_top = 124.0
-margin_right = 736.0
-margin_bottom = 152.0
-rect_scale = Vector2( 2, 2 )
 
 [node name="BlackSquare" type="Area2D" parent="Terminal"]
 use_parent_material = true
@@ -1372,23 +1598,22 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terminal/BlackSquare"]
 position = Vector2( -6.10352e-05, 0 )
-shape = SubResource( 10 )
+shape = SubResource( 17 )
 
-[node name="CommandInput" type="TextEdit" parent="Terminal"]
-margin_left = 159.0
-margin_top = 414.0
-margin_right = 710.0
-margin_bottom = 446.0
-custom_styles/normal = SubResource( 11 )
-custom_fonts/font = SubResource( 12 )
-custom_colors/caret_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_constants/line_spacing = 0
-fold_gutter = true
+[node name="CommandInput" type="LineEdit" parent="Terminal"]
+margin_left = 170.0
+margin_top = 409.0
+margin_right = 852.0
+margin_bottom = 448.0
+mouse_filter = 1
+custom_styles/focus = SubResource( 26 )
+custom_styles/normal = SubResource( 25 )
+custom_fonts/font = SubResource( 24 )
+custom_colors/font_color = Color( 0, 0.572549, 0.00784314, 1 )
+max_length = 76
 context_menu_enabled = false
-shortcut_keys_enabled = false
-caret_block_mode = true
-caret_blink = true
+placeholder_text = "Input commands here"
+placeholder_alpha = 0.7
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1404,7 +1629,7 @@ margin_left = 164.0
 margin_top = 55.0
 margin_right = 416.0
 margin_bottom = 87.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "Command prompt"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1423,51 +1648,91 @@ __meta__ = {
 
 [node name="CommandLabel" type="Label" parent="Terminal"]
 margin_left = 170.0
-margin_top = 364.0
+margin_top = 90.0
 margin_right = 816.0
 margin_bottom = 400.0
-custom_fonts/font = SubResource( 13 )
+grow_vertical = 0
+custom_fonts/font = SubResource( 20 )
 custom_colors/font_color = Color( 0, 0.556863, 0.101961, 1 )
 valign = 2
 autowrap = true
-clip_text = true
+max_lines_visible = 13
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bin" type="Control" parent="."]
+[node name="Bin" type="Node2D" parent="." groups=[
+"Window",
+]]
 visible = false
-margin_left = 152.0
-margin_top = 52.0
-margin_right = 856.0
-margin_bottom = 452.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+material = ExtResource( 11 )
+position = Vector2( 152, 52 )
+script = ExtResource( 53 )
 
 [node name="Window" type="Sprite" parent="Bin"]
-position = Vector2( 352, 200 )
+use_parent_material = true
 texture = ExtResource( 16 )
+centered = false
 
-[node name="CloseWindowButton" parent="Bin" instance=ExtResource( 9 )]
-margin_left = 668.0
-margin_top = 6.4
-margin_right = 692.0
-margin_bottom = 28.4
+[node name="TopWindowBar" type="Area2D" parent="Bin"]
 
-[node name="Label" type="Label" parent="Bin"]
-margin_left = 12.0
-margin_top = 3.0
-margin_right = 168.0
-margin_bottom = 35.0
-custom_fonts/font = SubResource( 2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bin/TopWindowBar"]
+position = Vector2( 350, 17.5 )
+shape = SubResource( 21 )
+
+[node name="TitleLabel" type="Label" parent="Bin"]
+margin_left = 7.0
+margin_top = 5.0
+margin_right = 144.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 22 )
 text = "Recycle Bin"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MyComp" type="Control" parent="."]
+[node name="CloseWindowButton" parent="Bin" instance=ExtResource( 9 )]
+margin_left = 664.0
+margin_top = 8.0
+margin_right = 688.0
+margin_bottom = 30.0
+
+[node name="Mine4" type="Node2D" parent="Bin"]
+use_parent_material = true
+position = Vector2( 31, 45 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 55 )
+
+[node name="Mine" type="TextureButton" parent="Bin/Mine4"]
+material = ExtResource( 11 )
+margin_right = 28.0
+margin_bottom = 28.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 47 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Bin/Mine4/Mine"]
+margin_left = -10.0
+margin_top = 32.0
+margin_right = 90.0
+margin_bottom = 46.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "not_a_mine.exe"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Collect" type="AudioStreamPlayer" parent="Bin/Mine4"]
+stream = ExtResource( 54 )
+volume_db = -30.0
+
+[node name="MyComp" type="Control" parent="." groups=[
+"Window",
+]]
+visible = false
 margin_left = 152.0
 margin_top = 52.0
 margin_right = 856.0
@@ -1492,7 +1757,7 @@ margin_left = 12.0
 margin_top = 3.0
 margin_right = 170.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "My Computer"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1541,6 +1806,7 @@ __meta__ = {
 }
 
 [node name="Games" type="Control" parent="MyComp"]
+visible = false
 margin_left = -152.0
 margin_top = -52.0
 margin_right = -112.0
@@ -1569,7 +1835,7 @@ margin_top = 34.0
 margin_right = 44.0
 margin_bottom = 48.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Solitare"
+text = "Solitaire"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1601,7 +1867,7 @@ margin_left = 348.0
 margin_top = 160.0
 margin_right = 600.0
 margin_bottom = 192.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "Games"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1614,10 +1880,6 @@ margin_right = 681.0
 margin_bottom = 184.0
 
 [node name="Mine3" parent="MyComp/Games" instance=ExtResource( 14 )]
-margin_left = 511.0
-margin_top = 204.0
-margin_right = 539.0
-margin_bottom = 232.0
 
 [node name="codelabel2" type="Label" parent="MyComp/Games/Mine3"]
 margin_left = -29.0
@@ -1631,7 +1893,61 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Pictures" type="Control" parent="."]
+[node name="Other" type="Control" parent="MyComp"]
+visible = false
+margin_left = -152.0
+margin_top = -52.0
+margin_right = -112.0
+margin_bottom = -12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SmallWindow" type="Sprite" parent="MyComp/Other"]
+position = Vector2( 514, 256 )
+texture = ExtResource( 19 )
+
+[node name="MystButton" type="TextureButton" parent="MyComp/Other"]
+margin_left = 360.0
+margin_top = 200.0
+margin_right = 392.0
+margin_bottom = 233.0
+texture_normal = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MyComp/Other/MystButton"]
+margin_left = -8.0
+margin_top = 34.0
+margin_right = 44.0
+margin_bottom = 48.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "????????"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MyComp/Other"]
+margin_left = 348.0
+margin_top = 160.0
+margin_right = 435.0
+margin_bottom = 192.0
+custom_fonts/font = SubResource( 9 )
+text = "Other"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseWindowButton2" parent="MyComp/Other" instance=ExtResource( 9 )]
+margin_left = 657.0
+margin_top = 162.0
+margin_right = 681.0
+margin_bottom = 184.0
+
+[node name="Pictures" type="Control" parent="." groups=[
+"Window",
+]]
 visible = false
 margin_left = 152.0
 margin_top = 52.0
@@ -1678,7 +1994,7 @@ margin_left = 12.0
 margin_top = 3.0
 margin_right = 168.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "Pictures"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1709,7 +2025,7 @@ margin_left = 259.0
 margin_top = 110.0
 margin_right = 511.0
 margin_bottom = 142.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "poker.jpg"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1721,7 +2037,9 @@ margin_top = 116.0
 margin_right = 764.0
 margin_bottom = 138.0
 
-[node name="Solitare" type="Control" parent="."]
+[node name="Solitare" type="Control" parent="." groups=[
+"Window",
+]]
 visible = false
 material = ExtResource( 11 )
 margin_right = 40.0
@@ -1746,8 +2064,8 @@ margin_left = 208.0
 margin_top = 75.4
 margin_right = 366.0
 margin_bottom = 107.4
-custom_fonts/font = SubResource( 2 )
-text = "Solitare"
+custom_fonts/font = SubResource( 9 )
+text = "Solitaire"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1840,13 +2158,10 @@ __meta__ = {
 
 [node name="Mine" parent="Solitare/Cards" instance=ExtResource( 14 )]
 visible = false
-margin_left = 424.0
-margin_top = 148.0
-margin_right = 452.0
-margin_bottom = 176.0
-rect_scale = Vector2( 2, 2 )
 
-[node name="Goose" type="Control" parent="."]
+[node name="Goose" type="Control" parent="." groups=[
+"Window",
+]]
 visible = false
 material = ExtResource( 11 )
 margin_right = 40.0
@@ -1858,15 +2173,44 @@ __meta__ = {
 [node name="Window2" type="Sprite" parent="Goose"]
 use_parent_material = true
 position = Vector2( 504, 252 )
-texture = ExtResource( 16 )
+texture = ExtResource( 38 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HonkLocked" type="Sprite" parent="Goose"]
+use_parent_material = true
+position = Vector2( 511, 416 )
+texture = ExtResource( 39 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Padlock" type="Sprite" parent="Goose"]
+use_parent_material = true
+position = Vector2( 512, 416 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 44 )
 
 [node name="Label2" type="Label" parent="Goose"]
 margin_left = 164.0
 margin_top = 55.0
 margin_right = 320.0
 margin_bottom = 87.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "Goose Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HonkButton" type="TextureButton" parent="Goose"]
+visible = false
+use_parent_material = true
+margin_left = 451.0
+margin_top = 400.0
+margin_right = 571.0
+margin_bottom = 432.0
+texture_normal = ExtResource( 40 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1889,6 +2233,185 @@ __meta__ = {
 
 [node name="Goose" parent="Goose" instance=ExtResource( 37 )]
 position = Vector2( 252, 196 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Goose"]
+position = Vector2( 504, 386 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goose/StaticBody2D"]
+shape = SubResource( 23 )
+
+[node name="MysteriousButton" type="Control" parent="." groups=[
+"Window",
+]]
+visible = false
+material = ExtResource( 11 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SmallWindow" type="Sprite" parent="MysteriousButton"]
+use_parent_material = true
+position = Vector2( 514, 256 )
+texture = ExtResource( 43 )
+
+[node name="Label" type="Label" parent="MysteriousButton"]
+margin_left = 300.0
+margin_top = 54.0
+margin_right = 374.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 9 )
+text = "???"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseWindowButton2" parent="MysteriousButton" instance=ExtResource( 9 )]
+margin_left = 698.0
+margin_top = 56.4
+margin_right = 722.0
+margin_bottom = 78.4
+
+[node name="Mine" parent="MysteriousButton" instance=ExtResource( 14 )]
+visible = false
+
+[node name="MysteriousButton" type="TextureButton" parent="MysteriousButton"]
+use_parent_material = true
+margin_left = 388.0
+margin_top = 148.0
+margin_right = 415.0
+margin_bottom = 175.0
+rect_scale = Vector2( 8, 8 )
+texture_normal = ExtResource( 42 )
+texture_pressed = ExtResource( 41 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Control" parent="."]
+visible = false
+material = ExtResource( 11 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -20.0
+margin_right = 960.0
+margin_bottom = 520.0
+color = Color( 0, 0, 0, 0.521569 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Sprite" parent="MainMenu"]
+use_parent_material = true
+position = Vector2( 508, 229 )
+scale = Vector2( 9, 8 )
+texture = ExtResource( 45 )
+
+[node name="Label3" type="Label" parent="MainMenu"]
+margin_left = 377.5
+margin_top = 112.0
+margin_right = 641.5
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 9 )
+text = "Fix the minesweeper"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="TextureButton" parent="MainMenu"]
+use_parent_material = true
+margin_left = 390.0
+margin_top = 209.0
+margin_right = 510.0
+margin_bottom = 241.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 46 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+material = ExtResource( 11 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -20.0
+margin_right = 960.0
+margin_bottom = 520.0
+color = Color( 0, 0, 0, 0.521569 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Sprite" parent="GameOver"]
+use_parent_material = true
+position = Vector2( 508, 229 )
+scale = Vector2( 9, 8 )
+texture = ExtResource( 45 )
+
+[node name="Label3" type="Label" parent="GameOver"]
+margin_left = 377.5
+margin_top = 112.0
+margin_right = 641.5
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 9 )
+text = "victory.exe"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="youwon" type="Label" parent="GameOver"]
+margin_left = 374.0
+margin_top = 149.0
+margin_right = 642.0
+margin_bottom = 208.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You won! 
+Congratulations!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoolSmile" type="Sprite" parent="GameOver"]
+material = ExtResource( 11 )
+position = Vector2( 508, 262 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 50 )
+
+[node name="FinishTime" type="Label" parent="GameOver"]
+margin_left = 380.0
+margin_top = 316.0
+margin_right = 644.0
+margin_bottom = 344.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Your time: 00:00:00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="DesktopIcons/MyComp" to="." method="_on_MyComp_pressed"]
 [connection signal="pressed" from="DesktopIcons/TerminalButton" to="." method="_on_TerminalButton_pressed"]
@@ -1900,7 +2423,8 @@ position = Vector2( 252, 196 )
 [connection signal="pressed" from="DesktopIcons/Message" to="." method="_on_Message_pressed"]
 [connection signal="pressed" from="DesktopIcons/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="Messages/ImportantMessage" to="." method="_on_ImportantMessage_pressed"]
-[connection signal="pressed" from="Internet/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="text_entered" from="Internet/TextEdit" to="." method="_on_TextEdit_text_entered"]
+[connection signal="pressed" from="Internet/SearchButton" to="." method="_on_SearchButton_pressed"]
 [connection signal="pressed" from="Documents/codetxt" to="." method="_on_codetxt_pressed"]
 [connection signal="pressed" from="Documents/commandstxt" to="." method="_on_commandstxt_pressed"]
 [connection signal="mouse_entered" from="Credits/JamLogo" to="." method="_on_JamLogo_mouse_entered"]
@@ -1909,10 +2433,15 @@ position = Vector2( 252, 196 )
 [connection signal="pressed" from="Credits/ItchButton" to="." method="_on_ItchButton_pressed"]
 [connection signal="mouse_entered" from="Terminal/BlackSquare" to="." method="_on_BlackSquare_mouse_entered"]
 [connection signal="mouse_exited" from="Terminal/BlackSquare" to="." method="_on_BlackSquare_mouse_exited"]
+[connection signal="text_entered" from="Terminal/CommandInput" to="." method="_on_CommandInput_text_entered"]
 [connection signal="pressed" from="Terminal/EnterButton" to="." method="_on_EnterButton_pressed"]
+[connection signal="input_event" from="Bin/TopWindowBar" to="Bin" method="_on_Area2D_input_event"]
+[connection signal="pressed" from="Bin/Mine4/Mine" to="Bin/Mine4" method="_on_Mine_pressed"]
 [connection signal="pressed" from="MyComp/GamesButton" to="." method="_on_GamesButton_pressed"]
+[connection signal="pressed" from="MyComp/OtherButton" to="." method="_on_OtherButton_pressed"]
 [connection signal="pressed" from="MyComp/Games/SolitareButton" to="." method="_on_SolitareButton_pressed"]
 [connection signal="pressed" from="MyComp/Games/GooseButton" to="." method="_on_GooseButton_pressed"]
+[connection signal="pressed" from="MyComp/Other/MystButton" to="." method="_on_MystButton_pressed"]
 [connection signal="pressed" from="Pictures/pokerjpg" to="." method="_on_pokerjpg_pressed"]
 [connection signal="pressed" from="Solitare/Cards/JackCard" to="Solitare/Cards" method="_on_JackCard_pressed"]
 [connection signal="pressed" from="Solitare/Cards/KingCard" to="Solitare/Cards" method="_on_KingCard_pressed"]
@@ -1920,3 +2449,6 @@ position = Vector2( 252, 196 )
 [connection signal="pressed" from="Solitare/Cards/QueenCard" to="Solitare/Cards" method="_on_QueenCard_pressed"]
 [connection signal="pressed" from="Solitare/Cards/AceCard" to="Solitare/Cards" method="_on_AceCard_pressed"]
 [connection signal="pressed" from="Solitare/Cards/EightCard" to="Solitare/Cards" method="_on_8Card_pressed"]
+[connection signal="pressed" from="Goose/HonkButton" to="." method="_on_HonkButton_pressed"]
+[connection signal="pressed" from="MysteriousButton/MysteriousButton" to="." method="_on_MysteriousButton_pressed"]
+[connection signal="pressed" from="MainMenu/PlayButton" to="." method="_on_PlayButton_pressed"]
