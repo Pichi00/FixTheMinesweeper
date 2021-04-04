@@ -5,6 +5,7 @@ var velocity = Vector2(1,0)
 var goleft = false
 
 func _ready():
+	$MineBody/Mine/Mine.disabled = true
 	$AnimationPlayer.play("WalkRight")
 
 

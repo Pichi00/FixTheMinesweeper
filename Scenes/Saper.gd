@@ -10,9 +10,9 @@ var mm
 var ss
 
 func _ready():
-	$Credits/JamLogo.input_pickable = true
-	for item in get_tree().get_nodes_in_group("DesktopIcon"):
-		item.disabled = true
+	pass
+#	for item in get_tree().get_nodes_in_group("DesktopIcon"):
+#		item.disabled = true
 
 func _input(event):
 	$UI/MinesLabel.text = "Mines: " + str(Global.mines) + "/10"
@@ -34,13 +34,13 @@ func _on_Message_pressed():
 
 
 func _on_ImportantMessage_pressed():
-	$Messages/CodedMessage.show()
+	$CodedMessage.show()
 
 func _on_Explorer_pressed():
 	$Internet.show()
 
 func _on_codetxt_pressed():
-	$Documents/Code.show()
+	$Code.show()
 
 func _on_Documents_pressed():
 	$Documents.show()
@@ -98,13 +98,13 @@ func _on_Timer_timeout():
 	$SystemBar/Time.text = hh+" : "+mm+" : "+ss
 
 func _on_commandstxt_pressed():
-	$Documents/Commands.show()
+	$Commands.show()
 
 func _on_Trash_pressed():
 	$Bin.show()
 
 func _on_pokerjpg_pressed():
-	$Pictures/Poker.show()
+	$Poker.show()
 
 func _on_Pictures_pressed():
 	$Pictures.show()
@@ -113,7 +113,7 @@ func _on_MyComp_pressed():
 	$MyComp.show()
 
 func _on_GamesButton_pressed():
-	$MyComp/Games.show()
+	$Games.show()
 
 func _on_SolitareButton_pressed():
 	$Solitare.show()
@@ -125,7 +125,7 @@ func _on_MystButton_pressed():
 	$MysteriousButton.show()
 
 func _on_OtherButton_pressed():
-	$MyComp/Other.show()
+	$Other.show()
 
 func _on_MysteriousButton_pressed():
 	if sec % 10 == 0:

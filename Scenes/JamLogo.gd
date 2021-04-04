@@ -17,6 +17,7 @@ func _input(event: InputEvent) -> void:
 			dragging = event.pressed
 		elif event.button_index == BUTTON_LEFT and !event.pressed:
 			dragging = false
+	visible = $"/root/Desktop/Credits".visible
 
 
 func _physics_process(delta: float) -> void:
